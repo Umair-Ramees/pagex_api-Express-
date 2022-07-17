@@ -1,0 +1,43 @@
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - deploy
+
+deploy_dev:
+  stage: deploy
+  only:
+    - develop
+  tags:
+    - pagex-dev
+  script:
+    - DEV_HOME="/var/www/dev_pagex_api/";
+    - PATH=${PATH}:/usr/local/bin:~/.nvm/versions/node/v10.22.0/bin
+    - echo $PATH
+    - if [ ! -d $DEV_HOME ]; then exit 1; fi
+    - npm install
+    - rsync -arp  --exclude-from='.rsync_excludes' --delete-delay . ${DEV_HOME}
+    - cp .env-template-dev .env
+    #- npm run build
+    - pm2 delete www || true
+    - pm2 start bin/www.js
+
+deploy_prod:
+  stage: deploy
+  tags:
+    - pagex-prod
+  only:
+    - master
+  script:
+    - DEV_HOME="/var/www/pagex_api/";
+    - PATH=${PATH}:/usr/local/bin:~/.nvm/versions/node/v10.21.0/bin/
+    - if [ ! -d $DEV_HOME ]; then exit 1; fi
+    - echo $PATH
+    - cp .env-template ${DEV_HOME}.env
+    - npm install
+    - rsync -arp  --exclude-from='.rsync_excludes' --delete-delay . ${DEV_HOME}
+    - cd ${DEV_HOME}
+    #- npm run build
+    - pm2 delete www || true
+    - pm2 start bin/www.js
