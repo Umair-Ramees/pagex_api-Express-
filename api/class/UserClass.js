@@ -18,6 +18,6 @@ async function CreateNewUser(data, photo, currentCategory, isThirdParty=false) {
 }
 
 
-module.exports = {
+module.exports = { 
   CreateNewUser,
 };
