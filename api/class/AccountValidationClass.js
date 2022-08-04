@@ -9,7 +9,7 @@ async function AccountValidate(data, code) {
       validationCode: code,
       active: data.active,
     });
-  });
+  }); 
 }
 
 module.exports = {
