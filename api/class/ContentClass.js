@@ -11,7 +11,7 @@ createNewContent = (data, photo) => {
       contentImage: photo,
       contentType: data.contentType,
     });
-  });
+  }); 
 };
 
 createNewContentWithContribution = (data, photo, artForms) => {
