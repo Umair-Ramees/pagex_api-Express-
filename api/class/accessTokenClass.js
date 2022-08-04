@@ -24,7 +24,7 @@ module.exports = class AccessToken {
         }
       )
         .then((result) => {
-          resolve(result[0].token);
+          resolve(result[0].token); 
         })
         .catch((err) => {
           console.log("getTokenByAccessToken ERR :", err);
