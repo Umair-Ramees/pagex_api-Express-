@@ -9,7 +9,7 @@ const createNewColumnWithPromotion = (data) => {
       columnDescription: data.columnDescription,
     });
   });
-};
+}; 
 
 module.exports = {
   createNewColumnWithPromotion,
