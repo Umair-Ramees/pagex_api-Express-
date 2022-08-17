@@ -1,7 +1,7 @@
 const pageService = require("../services/pageService");
 
 const getUserSubscriptionPages = (req, res, next) => {
-  pageService.getUserSubscriptionPages(req, res, next);
+  pageService.getUserSubscriptionPages(req, res, next); 
 };
 
 const addNewPage = (req, res, next) => {
