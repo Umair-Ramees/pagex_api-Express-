@@ -39,7 +39,7 @@ getAllContentsWithContribution = (req, res, next) => {
 };
 
 getAllContentsWithContributionByPage = (req, res, next) => {
-    let limit = req.params.limit;
+    let limit = req.params.limit; 
     let page = req.params.page;
     let pageId = req.params.pageId;
     contentService.getAllContentService.getAllContentsWithContributionByPage(res, page, limit, pageId);
