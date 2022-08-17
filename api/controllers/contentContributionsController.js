@@ -2,7 +2,7 @@ const ContentContribution = require("../models/ContentContribution");
 
 const editContentContributions = async (req, res, next) => {
   try {
-    const data = await ContentContribution.findByIdAndUpdate(
+    const data = await ContentContribution.findByIdAndUpdate( 
       req.params.id,
       req.body,
       { new: true }
