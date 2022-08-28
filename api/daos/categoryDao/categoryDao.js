@@ -5,5 +5,5 @@ const getCategoryById = (categoryId) => {
 }
 
 module.exports = {
-    getCategoryById
+    getCategoryById 
 }
