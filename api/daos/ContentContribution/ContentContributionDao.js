@@ -18,4 +18,4 @@ const getContentContributions = (query) => {
 
 module.exports = {
     getContentContributions
-};
+}; 
